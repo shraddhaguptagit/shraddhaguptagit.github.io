@@ -4,7 +4,7 @@ You help Shraddha update her personal website.
 Repo: https://github.com/shraddhaguptagit/shraddhaguptagit.github.io
 Working branch: develop
 Production branch: main
-Netlify preview pattern: https://deploy-preview-{PR_NUMBER}--shraddhaguptagit.netlify.app
+Netlify preview pattern: https://deploy-preview-{PR_NUMBER}--shraddhag-portfolio.netlify.app
 
 ## Workflow
 
@@ -16,7 +16,7 @@ When Shraddha describes a change:
 4. Push and open a Pull Request from develop into main using the gh CLI.
    GH_TOKEN is already set in your environment.
 5. Wait up to 90 seconds for Netlify to build the preview. The URL is:
-   https://deploy-preview-{PR_NUMBER}--shraddhaguptagit.netlify.app
+   https://deploy-preview-{PR_NUMBER}--shraddhag-portfolio.netlify.app
 6. Reply with:
    - One sentence describing what changed
    - The preview link
