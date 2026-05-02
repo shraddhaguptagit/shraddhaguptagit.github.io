@@ -5,7 +5,7 @@ body {
   font-family: 'EB Garamond';
   font-size: 1.3rem;
   color: #333;
-  background: rgb(46, 100, 83);
+  background: #b5830a;
 }
 
 a {
@@ -15,7 +15,7 @@ a {
 }
 
 h2 {
-  border-bottom: 4px solid rgb(46, 100, 83);
+  border-bottom: 4px solid #b5830a;
   display:inline-block; 
   font-weight: normal;
 }
