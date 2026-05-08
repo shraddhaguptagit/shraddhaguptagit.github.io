@@ -1,99 +1,738 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Shraddha Gupta</title>
-	<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shraddha Gupta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fraunces:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --ink: #1a1a1a;
+    --wave-bg: #ffffff;
+    --muted: #6b6b6b;
+    --accent: #b83a3a;
+    --paper: #ffffff;
+    --tape: #f4e9b8;
+    --rule: #1a1a1a;
+    --card-border: #ececec;
+    --font-hand: 'Patrick Hand', cursive;
+    --font-serif: 'Fraunces', Georgia, serif;
+    --font-body: 'Lora', Georgia, serif;
+    --font-sans: 'Inter', system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body { overflow-x: hidden; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 32px 0 80px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .page-padding {
+    padding-left: 56px;
+    padding-right: 56px;
+  }
+
+  .smooth-rotate {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    will-change: transform;
+  }
+
+  /* ---------- NAV ---------- */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+
+  .logo {
+    font-family: var(--font-hand);
+    font-weight: 600;
+    font-size: 32px;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-links { display: flex; gap: 36px; }
+
+  .nav-links a {
+    color: var(--ink);
+    text-decoration: none;
+    font-family: var(--font-hand);
+    font-size: 26px;
+    transition: color 0.2s ease;
+    display: inline-block;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0) rotate(var(--r, 0deg));
+  }
+
+  .nav-links a:nth-child(1) { --r: -3deg; }
+  .nav-links a:nth-child(2) { --r: 2deg; }
+  .nav-links a:nth-child(3) { --r: -1deg; }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ---------- WAVE ANIMATION ---------- */
+  .wave-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1440 / 240;
+    overflow: hidden;
+    background: var(--wave-bg);
+    margin-top: 72px;
+    margin-bottom: 24px;
+  }
+
+  .wave-frame img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .wave-leaf {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .wave-bg {
+    position: absolute;
+    inset: 0;
+    background: url('assets/drawings/waves.svg');
+    background-size: auto 100%;
+    background-repeat: repeat-x;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    animation: scroll-bg 20s linear infinite;
+    will-change: background-position;
+  }
+
+  @keyframes scroll-bg {
+    from { background-position: 0 0; }
+    to   { background-position: -1440px 0; }
+  }
+
+  .wave-tile img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @keyframes scroll {
+    from { transform: translate3d(0, 0, 0); }
+    to   { transform: translate3d(-50%, 0, 0); }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    text-align: center;
+    padding: 40px 0 64px;
+    position: relative;
+  }
+
+  .hero h1 {
+    font-family: var(--font-hand);
+    font-weight: 700;
+    font-size: clamp(40px, 6vw, 68px);
+    line-height: 1.1;
+    letter-spacing: 0.005em;
+    position: relative;
+    display: inline-block;
+  }
+
+  .hero h1 span.line2 {
+    display: block;
+    font-size: clamp(30px, 4.5vw, 40px);
+    margin-top: 8px;
+    color: #2a2a2a;
+  }
+
+  .hero h1 span.aside {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 0.5em;
+    color: var(--muted);
+    letter-spacing: 0;
+    vertical-align: middle;
+  }
+
+  .hero .tagline {
+    margin-top: 28px;
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 19px;
+    line-height: 1.6;
+    color: #3a3a3a;
+    max-width: 56ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ---------- SPARKLES ---------- */
+  .sparkle {
+    --sparkle-size: 28px;
+    --sparkle-color: var(--accent);
+    position: absolute;
+    width: var(--sparkle-size);
+    height: var(--sparkle-size);
+    pointer-events: none;
+    background: var(--sparkle-color);
+    clip-path: polygon(
+      50% 0%, 58% 42%, 100% 50%, 58% 58%,
+      50% 100%, 42% 58%, 0% 50%, 42% 42%
+    );
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.15));
+    animation: twinkle 2.4s ease-in-out infinite;
+  }
+  .sparkle--sm { --sparkle-size: 18px; }
+  .sparkle--lg { --sparkle-size: 42px; }
+
+  @keyframes twinkle {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    50%      { transform: scale(0.75) rotate(90deg); opacity: 0.7; }
+  }
+
+  /* ---------- CANVAS / GALLERY ---------- */
+  .canvas {
+    position: relative;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 96px;
+    align-items: start;
+  }
+
+  .gallery {
+    position: relative;
+    min-height: 800px;
+    padding-top: 60px;
+  }
+
+  .gallery-label {
+    position: absolute;
+    top: 8px;
+    left: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transform: rotate(-2deg);
+  }
+
+  .gallery-label-line {
+    width: 32px;
+    height: 1px;
+    background: var(--muted);
+  }
+
+  .gallery-label-text {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+  }
+
+  .art {
+    position: absolute;
+    background: var(--paper);
+    padding: 10px 10px 14px;
+    box-shadow:
+      0 1px 2px rgba(0,0,0,0.06),
+      0 8px 22px rgba(0,0,0,0.10);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, z-index 0s 0.25s;
+    cursor: pointer;
+    z-index: 1;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    will-change: transform;
+  }
+
+  .art img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .art:hover {
+    transform: rotate(0deg) scale(1.03) !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08), 0 24px 50px rgba(0,0,0,0.18);
+    z-index: 10;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, z-index 0s;
+  }
+
+  .art::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    width: 60px;
+    height: 18px;
+    background: var(--tape);
+    opacity: 0.85;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  }
+
+  .art .caption {
+    font-family: var(--font-hand);
+    font-size: 16px;
+    text-align: center;
+    margin-top: 6px;
+    color: #555;
+  }
+
+  /* ---------- WRITING COLUMN ---------- */
+  .writing { padding-top: 12px; }
+
+  .featured-quote {
+    margin: 0 0 56px;
+    padding: 0;
+    border: none;
+  }
+
+  .featured-quote p {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(22px, 2.4vw, 30px);
+    line-height: 1.4;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+
+  .featured-quote cite {
+    display: block;
+    margin-top: 16px;
+    font-style: normal;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+  }
+
+  .featured-quote cite em {
+    font-style: italic;
+    text-transform: none;
+    letter-spacing: 0.02em;
+    font-family: var(--font-body);
+    font-size: 14px;
+  }
+
+  .writing-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .writing-header h2 {
+    font-family: var(--font-hand);
+    font-weight: 700;
+    font-size: 44px;
+    letter-spacing: 0.01em;
+  }
+
+  .writing-header a {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .writing-header a:hover { color: var(--accent); }
+
+  .essay {
+    background: var(--paper);
+    padding: 28px 34px;
+    margin-bottom: 32px;
+    box-shadow:
+      0 1px 2px rgba(0,0,0,0.04),
+      0 6px 18px rgba(0,0,0,0.06);
+    border: 1px solid var(--card-border);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    will-change: transform;
+  }
+
+  .essay:hover {
+    transform: translateY(-2px) rotate(0deg);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05), 0 14px 28px rgba(0,0,0,0.10);
+  }
+
+  .essay:nth-child(odd) { transform: rotate(-0.5deg); }
+  .essay:nth-child(even) { transform: rotate(0.5deg); }
+
+  .essay a.title-link { text-decoration: none; color: inherit; display: block; }
+
+  .essay h3 {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 1.3;
+    margin-bottom: 14px;
+  }
+
+  .essay h3:hover { color: var(--accent); }
+
+  .essay blockquote {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.7;
+    color: #2d2d2d;
+    padding-left: 20px;
+    border-left: 2px solid var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .essay blockquote p + p { margin-top: 10px; }
+
+  .essay .meta {
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-family: var(--font-sans);
+  }
+
+  /* ---------- DOODLES ---------- */
+  .doodle {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.85;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    margin-top: 100px;
+    padding-top: 28px;
+    border-top: 1px solid var(--accent);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  footer .signoff {
+    font-family: var(--font-hand);
+    font-size: 28px;
+    color: var(--accent);
+  }
+
+  footer .links { display: flex; gap: 28px; }
+
+  footer .links a {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 14px;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+    transition: border-color 0.2s ease;
+  }
+
+  footer .links a:hover { border-color: var(--accent); }
+
+  /* ---------- MODAL ---------- */
+  .modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 18, 16, 0.92);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 40px 80px;
+    cursor: pointer;
+  }
+
+  .modal.open { display: flex; }
+
+  .modal-stage {
+    max-width: 90vw;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    cursor: default;
+  }
+
+  .modal-stage img {
+    max-width: 100%;
+    max-height: 78vh;
+    object-fit: contain;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+
+  .modal-caption {
+    font-family: var(--font-hand);
+    font-size: 22px;
+    color: #f0e9d8;
+  }
+
+  .modal-arrow, .modal-close {
+    position: absolute;
+    background: none;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fafaf7;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s ease;
+    font-family: var(--font-serif);
+  }
+
+  .modal-arrow { top: 50%; transform: translateY(-50%); }
+  .modal-prev { left: 24px; }
+  .modal-next { right: 24px; }
+  .modal-close { top: 24px; right: 24px; border: none; opacity: 0.7; font-size: 28px; }
+
+  .modal-arrow:hover, .modal-close:hover { background: rgba(255,255,255,0.1); opacity: 1; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 1024px) {
+    .canvas {
+      grid-template-columns: 1fr;
+      gap: 56px;
+    }
+    .writing { order: 1; }
+    .gallery { order: 2; }
+    .gallery {
+      min-height: auto;
+      padding-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .art {
+      position: relative !important;
+      top: auto !important; left: auto !important;
+      width: 100% !important; height: auto !important;
+      transform: rotate(0deg) !important;
+    }
+    .art img { aspect-ratio: 1 / 1; }
+    .gallery-label { position: relative; top: auto; left: 0; }
+    .doodle { display: none; }
+  }
+
+  @media (max-width: 720px) {
+    body { padding: 16px 20px 60px; }
+    nav { margin-bottom: 24px; padding-bottom: 12px; }
+    .hero { padding: 8px 0 40px; }
+    .nav-links { gap: 18px; }
+    .gallery { grid-template-columns: 1fr; max-width: 320px; }
+    .wave-frame { aspect-ratio: 1440 / 180; }
+  }
+</style>
 </head>
-
 <body>
-	<div class="container">
-		<div class="header">
-			<div class="header-left">
-				<h1 class="title">Shraddha Gupta</h1>
-				<div style="display: flex; align-items: center;">
-					<h3 class="subtitle">Creative Writer</h3>
-				</div>
-  
-				<p>I am an aspiring writer based in Bhopal, India.</p>
-				<p>
-					I love writing creative, research-oriented and impactful pieces that can engage readers.
-				</p>
-			</div>
-			<div class="header-right">
-				<img src="assets/flower.webp" draggable="false">
-			</div>
-		</div>
-		<div class="selected-writings">
-			<div style="display: flex; align-items: center;">
-				<img draggable="false" src="assets/pen.webp" width="70px">
-				<h2>Selected Writings</h2>
-			</div>
-			<div class="selected-writings-boxes">
-				<a href="http://blog.shraddha.page/the-day-i-got-introduced-to-caste" class="selected-writings-box">The
-					day I got introduced to Caste</a>
-				<a href="http://blog.shraddha.page/renaming-the-pages-of-history-minto-hall-and-the-nawab-culture-of-bhopal"
-					class="selected-writings-box">The Renaming of Minto Hall</a>
-				<a href="http://blog.shraddha.page/the-station-of-the-dead" class="selected-writings-box">The Station of the Dead</a>
-			</div>
-		</div>
-		<a href="https://blog.shraddha.page">Read all →</a>
-		<div class="work">
-			<h2>Work</h2>
-			<div class="small-break"></div>
-			<div class="mp-tourism">
-				<div class="mp-tourism-text">
-					<h3>MP Tourism</h3>
-					<h4>Research Assistant, 2022</h4>
-					<p>
-						I worked as a research assistant for a project under M.P. Tourism. The
-						project was headed by Mr. Joe Alvares. Our focus was on crafting
-						captivating audio guides for the world heritage sites of Sanchi,
-						Bhimbetka, and Bhojpur. 
-					</p>
-				</div>
-				<div class="mp-tourism-img">
-					<img style="width: 100%" src="assets/mp-tourism.webp">
-				</div>
-			</div>
 
-			<div class="break"></div>
-			<div class="student-magazine">
-				<div class="student-magazine-img">
-					<img style="width: 80%" src="assets/shraddha-mag.jpg">
-				</div>
-				<div>
-					<h3>Student Magazine – JLU</h3>
-					<h4>Editor, 2021</h4>
-					<p>
-						I acted as the editor of the COVID edition of 'Akhbaar' student magazine,
-						featuring stories and artworks reflecting our community's pandemic experiences.
-						<br>
-						My responsibility was to oversee the content creation and layout for this unique edition.
-					</p>
-					<a href="https://shraddha.page/assets/akhbaar-magazine.pdf">Read the full magazine →</a>
-					<br>
-					<br>
-				</div>
-			</div>
-		</div>
-		<div class="break"></div>
-		<div class="looking-to-work">
-			<div class="looking-to-work-left">
-				<p>I am looking for work at a place where I can hone my craft. </p>
-				<br>
-				<p>Write to me at <a href="mailto:shraddhagupta2015@gmail.com">shraddhagupta2015@gmail.com</a></p>
-			</div>
-			<div class="looking-to-work-right">
-				<a href="https://shraddha.page/assets/cv.pdf">Resume →</a>
-			</div>
+  <!-- ============================ NAV ============================ -->
+  <nav class="page-padding">
+    <div class="logo">shraddha gupta.</div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Projects</a>
+      <a href="#">About</a>
+    </div>
+  </nav>
 
-		</div>
-	</div>
+  <!-- ============================ WAVE ANIMATION ============================ -->
+  <div class="wave-frame">
+    <img class="wave-leaf" src="assets/arts/leaf.jpg" alt="">
+    <div class="wave-bg"></div>
+  </div>
 
+  <!-- ============================ HERO ============================ -->
+  <header class="hero page-padding">
+    <h1>
+      <span class="sparkle sparkle--lg" style="top: -30px; left: -50px; --sparkle-color: #e8c547;"></span>
+      <span class="sparkle" style="top: -10px; right: -40px;"></span>
+      <span class="sparkle sparkle--sm" style="bottom: 14px; right: -56px; --sparkle-color: #1a1a1a;"></span>
+      <span class="sparkle sparkle--sm" style="top: 50%; left: -64px; --sparkle-color: #b83a3a;"></span>
+
+      Hi, I'm Shraddha Gupta
+      <span class="line2">creative writer · researcher · doodler</span>
+    </h1>
+    <p class="tagline">I write essays on attention, neutrality, and the social texture of feeling — the quiet structures that shape how we notice, judge, and care.</p>
+  </header>
+
+  <!-- ============================ CANVAS ============================ -->
+  <section class="canvas page-padding">
+
+    <!-- ART COLUMN -->
+    <div class="gallery" id="gallery">
+
+      <div class="art" style="top: 0; left: 10px; width: 165px; height: 200px; transform: rotate(-4deg);">
+        <img src="assets/arts/art-1.jpeg" alt="" data-caption="Untitled · 01">
+        <div class="caption">untitled · 01</div>
+      </div>
+
+      <div class="art" style="top: 30px; left: 200px; width: 150px; height: 150px; transform: rotate(5deg);">
+        <img src="assets/arts/art-2.jpeg" alt="" data-caption="Untitled · 02">
+        <div class="caption">untitled · 02</div>
+      </div>
+
+      <div class="art" style="top: 290px; left: 30px; width: 155px; height: 195px; transform: rotate(3deg);">
+        <img src="assets/arts/art-3.jpeg" alt="" data-caption="Untitled · 03">
+        <div class="caption">untitled · 03</div>
+      </div>
+
+      <div class="art" style="top: 250px; left: 215px; width: 145px; height: 175px; transform: rotate(-6deg);">
+        <img src="assets/arts/art-4.jpeg" alt="" data-caption="Untitled · 04">
+        <div class="caption">untitled · 04</div>
+      </div>
+
+      <div class="art" style="top: 540px; left: 20px; width: 160px; height: 200px; transform: rotate(-2deg);">
+        <img src="assets/arts/art-5.jpeg" alt="" data-caption="Untitled · 05">
+        <div class="caption">untitled · 05</div>
+      </div>
+
+      <div class="art" style="top: 500px; left: 210px; width: 160px; height: 160px; transform: rotate(4deg);">
+        <img src="assets/arts/art-6.jpeg" alt="" data-caption="Untitled · 06">
+        <div class="caption">untitled · 06</div>
+      </div>
+
+      <svg class="doodle" style="top: 230px; left: 175px;" width="50" height="50" viewBox="0 0 60 60" fill="none">
+        <path d="M30 10 L33 25 L48 27 L36 36 L40 50 L30 42 L20 50 L24 36 L12 27 L27 25 Z" fill="#e8c547" stroke="#1a1a1a" stroke-width="1.2" stroke-linejoin="round"/>
+      </svg>
+
+      <svg class="doodle" style="top: 470px; left: 150px;" width="70" height="35" viewBox="0 0 80 40" fill="none">
+        <path d="M5 20 Q 20 5, 35 20 T 65 20" stroke="#b83a3a" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M65 20 L72 14 M65 20 L72 26" stroke="#b83a3a" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+
+    </div>
+
+    <!-- WRITING COLUMN -->
+    <div class="writing">
+      <div class="writing-header">
+        <h2>recent writing</h2>
+        <a href="https://shraddhag.substack.com/" target="_blank" rel="noopener">Substack →</a>
+      </div>
+
+      <article class="essay">
+        <a class="title-link" href="https://shraddhag.substack.com/p/recognition-before-experience-on" target="_blank" rel="noopener">
+          <h3>Recognition Before Experience</h3>
+        </a>
+        <blockquote>
+          <p>What appears as quick thinking is often pre-structured recognition. When a new instance appears, it does not arrive as entirely new. It arrives already legible.</p>
+          <p>This is where morality begins to function as reaction time. The interval between seeing and deciding collapses. The question is no longer <em>what is happening here?</em> but <em>which known pattern does this belong to?</em></p>
+        </blockquote>
+        <span class="meta">Essay · May 2026</span>
+      </article>
+
+      <article class="essay">
+        <a class="title-link" href="https://shraddhag.substack.com/p/neutrality-is-not-absence-on-the" target="_blank" rel="noopener">
+          <h3>Neutrality Is Not Absence</h3>
+        </a>
+        <blockquote>
+          <p>Neutrality is usually imagined as the absence of position. But in practice, it is a method of producing position while hiding it. It is not what happens when meaning disappears, it is what happens when meaning is carefully controlled.</p>
+          <p>To call something neutral is often to say: this has been arranged so that its power relations are not immediately visible.</p>
+        </blockquote>
+        <span class="meta">Essay · May 2026</span>
+      </article>
+
+      <article class="essay">
+        <a class="title-link" href="https://shraddhag.substack.com/p/care-in-fragments-apathy-attention" target="_blank" rel="noopener">
+          <h3>Care in Fragments</h3>
+        </a>
+        <blockquote>
+          <p>What emerges is a strange condition: a hyper-awareness of suffering combined with a reduced capacity to hold it for long. This is not a failure of individuals. It is a consequence of how visibility, speed, and proximity now structure emotional life.</p>
+          <p>Empathy does not disappear. It becomes something practiced in fragments — between news updates, between conversations, between moments of attention that are always slightly elsewhere.</p>
+        </blockquote>
+        <span class="meta">Essay · May 2026</span>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="page-padding">
+    <div class="signoff">— thanks for stopping by</div>
+    <div class="links">
+      <a href="mailto:hello@example.com">Email</a>
+      <a href="https://shraddhag.substack.com/" target="_blank" rel="noopener">Substack</a>
+      <a href="#">Twitter</a>
+      <a href="#">Instagram</a>
+    </div>
+  </footer>
+
+  <!-- ============================ MODAL ============================ -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <button class="modal-close" id="modal-close" aria-label="Close">×</button>
+    <button class="modal-arrow modal-prev" id="modal-prev" aria-label="Previous">‹</button>
+    <div class="modal-stage" id="modal-stage">
+      <img id="modal-img" src="" alt="">
+      <div class="modal-caption" id="modal-caption"></div>
+    </div>
+    <button class="modal-arrow modal-next" id="modal-next" aria-label="Next">›</button>
+  </div>
+
+  <script>
+    (function () {
+      const tiles = Array.from(document.querySelectorAll('.art img'));
+      const modal = document.getElementById('modal');
+      const modalImg = document.getElementById('modal-img');
+      const modalCaption = document.getElementById('modal-caption');
+      const stage = document.getElementById('modal-stage');
+      let i = 0;
+
+      function show(n) {
+        i = (n + tiles.length) % tiles.length;
+        modalImg.src = tiles[i].src;
+        modalCaption.textContent = tiles[i].dataset.caption || '';
+      }
+      function open(n) { show(n); modal.classList.add('open'); document.body.style.overflow = 'hidden'; }
+      function close() { modal.classList.remove('open'); document.body.style.overflow = ''; }
+
+      tiles.forEach((img, idx) => img.parentElement.addEventListener('click', () => open(idx)));
+      modal.addEventListener('click', close);
+      stage.addEventListener('click', e => e.stopPropagation());
+      document.getElementById('modal-close').addEventListener('click', close);
+      document.getElementById('modal-prev').addEventListener('click', e => { e.stopPropagation(); show(i - 1); });
+      document.getElementById('modal-next').addEventListener('click', e => { e.stopPropagation(); show(i + 1); });
+      document.addEventListener('keydown', e => {
+        if (!modal.classList.contains('open')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowLeft') show(i - 1);
+        if (e.key === 'ArrowRight') show(i + 1);
+      });
+    })();
+  </script>
 </body>
-
 </html>
