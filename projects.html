@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects · Shraddha Gupta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    /* Modal override for projects page - no caption */
+    .modal-caption { display: none; }
+    .modal-stage img { max-height: 80vh; }
+    .project-slide { cursor: pointer; }
+  </style>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Patrick+Hand&display=swap"
+    rel="stylesheet">
+  <style>
+    /* ── Projects page overrides ── */
+
+    .hero--projects {
+      padding: 28px 0 20px;
+      text-align: center;
+    }
+
+    .hero--projects h1 {
+      font-size: clamp(32px, 4.5vw, 48px);
+      margin-bottom: 10px;
+    }
+
+    .hero--projects .tagline {
+      max-width: 520px;
+      margin: 0 auto;
+      font-size: 15px;
+      line-height: 1.6;
+      opacity: 0.7;
+    }
+
+    /* ── Projects list ── */
+    .projects-list {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 10px 0 60px;
+    }
+
+    /* ── Individual project ── */
+    .project {
+      display: grid;
+      grid-template-columns: 425px 1fr;
+      gap: 48px;
+      align-items: start;
+      padding: 36px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      position: relative;
+    }
+
+    .project:last-child {
+      border-bottom: none;
+    }
+
+    /* ── Image pair ── */
+    .project-imgs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      position: relative;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+
+    .project-imgs .p-img {
+      background: #fff;
+      padding: 5px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07), 0 6px 16px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+
+    .project-imgs .p-img:first-child {
+      transform: rotate(-2.5deg);
+    }
+
+    .project-imgs .p-img:last-child {
+      transform: rotate(2deg) translateY(8px);
+    }
+
+    .project-imgs .p-img:hover {
+      transform: translateY(-3px) rotate(0deg);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1), 0 12px 28px rgba(0,0,0,0.12);
+    }
+
+    .project-imgs .p-img img {
+      display: block;
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    /* ── Single centered frameless image ── */
+    .project-imgs--single-center {
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+
+    .p-img--frameless {
+      background: none;
+      padding: 0;
+      box-shadow: none;
+      max-width: 240px;
+    }
+
+    .p-img--frameless:first-child {
+      transform: none;
+    }
+
+    .p-img--frameless:hover {
+      transform: none;
+      box-shadow: none;
+    }
+
+    .p-img--frameless img {
+      height: auto;
+      border-radius: 2px;
+    }
+
+    /* ── Text content ── */
+    .project-body {
+      padding: 4px 0;
+    }
+
+    .project-body h2 {
+      font-family: 'Lora', serif;
+      font-weight: 600;
+      font-size: clamp(18px, 2vw, 22px);
+      line-height: 1.3;
+      margin-bottom: 12px;
+      color: #1a1a1a;
+    }
+
+    .project-body p {
+      font-family: 'Lora', serif;
+      font-size: 17px;
+      line-height: 1.7;
+      color: #4a4a4a;
+      margin-bottom: 10px;
+    }
+
+    .project-body p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .project-cta {
+      display: inline-block;
+      margin-top: 14px;
+      font-family: 'Lora', serif;
+      font-size: 13px;
+      color: #b83a3a;
+      text-decoration: none;
+      border-bottom: 1px solid #b83a3a;
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .project-cta:hover {
+      color: #1a1a1a;
+      border-color: #1a1a1a;
+    }
+
+    /* ── Doodles positioned per-project ── */
+    .project-doodle {
+      position: absolute;
+      pointer-events: none;
+    }
+
+    /* ── Single centered frameless image ── */
+    .project-imgs--single-center {
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+
+    .p-img--frameless {
+      background: none;
+      padding: 0;
+      box-shadow: none;
+      transform: none !important;
+      max-width: 220px;
+    }
+
+    .p-img--frameless:hover {
+      transform: none !important;
+      box-shadow: none;
+    }
+
+    .p-img--frameless img {
+      height: auto !important;
+      border-radius: 2px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 680px) {
+      .project {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 28px 0;
+      }
+
+      .project-imgs {
+        max-width: 320px;
+      }
+
+      .project-imgs .p-img img {
+        height: 120px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ============================ NAV ============================ -->
+  <nav class="page-margin">
+    <div class="logo">shraddha gupta.</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="projects.html" class="nav-active-link">Projects</a>
+      <a href="about.html">About</a>
+      <a href="assets/Shraddha Gupta CV.pdf">Resume</a>
+    </div>
+  </nav>
+
+  <!-- ============================ HERO ============================ -->
+  <main class="page-margin">
+    <header class="hero hero--projects">
+      <h1>
+        <span class="sparkle sparkle--lg" style="top: -18px; left: -36px; --sparkle-color: #e8c547;"></span>
+        <span class="sparkle" style="top: 8px; right: -28px;"></span>
+        Projects
+      </h1>
+    </header>
+
+    <!-- ============================ PROJECTS LIST ============================ -->
+    <section class="projects-list">
+      <!-- Project 3: MP Tourism -->
+      <article class="project">
+        <div class="project-imgs">
+          <div class="p-img">
+            <img src="assets/projects/mp-tourism.webp" alt="MP Tourism QR guides" class="project-slide">
+          </div>
+          <div class="p-img">
+            <!-- placeholder for second image -->
+            <img src="assets/projects/mp-tourism-2.jpg" alt="Heritage site visit" style="filter: grayscale(0.3);" class="project-slide">
+          </div>
+        </div>
+        <div class="project-body">
+          <h2>M.P. Tourism: Heritage Audio Guides</h2>
+          <p>Worked as a Research Assistant on a project under M.P. Tourism, led by Mr. Joe Alvares. Helped develop and install QR-based audio guides at UNESCO World Heritage Sites including Sanchi Stupa, Bhojpur Temple, and Bhimbetka Rock Shelters.</p>
+          <p>Conducted archival research using resources from Archaeological Survey of India Bhopal Circle and Ban Ganga State Museum Library. Visited sites to collect visual material and support final placement of plaques.</p>
+          <div style="display: flex; align-items: flex-start; gap: 14px; margin-top: 16px;">
+            <img src="assets/mptourism-logo.webp" alt="MP Tourism" height="62" style="border-radius: 4px; object-fit: contain; flex-shrink: 0;">
+            <div>
+              <p style="font-family: 'Lora', serif; font-size: 16px; color: #1a1a1a; font-weight: 600; margin: 0 0 8px 0;">Listen to the audio guides</p>
+              <div class="audio-links" style="display: flex; flex-wrap: wrap; gap: 18px; align-items: center;">
+                <a href="https://www.mptourism.com/audio/the-great-stupa-sanchi-madhya-pradesh.php" target="_blank" rel="noopener" style="font-family: 'Lora', serif; font-size: 15px; color: #b83a3a; text-decoration: none; border-bottom: 1px solid #b83a3a; padding-bottom: 2px; transition: color 0.2s, border-color 0.2s;">Sanchi Stupa</a>
+                <a href="https://www.mptourism.com/audio/bhimbetka-general-summary.php" target="_blank" rel="noopener" style="font-family: 'Lora', serif; font-size: 15px; color: #b83a3a; text-decoration: none; border-bottom: 1px solid #b83a3a; padding-bottom: 2px; transition: color 0.2s, border-color 0.2s;">Bhimbetka</a>
+                <a href="https://www.mptourism.com/audio/bhojeshwar-temple.php" target="_blank" rel="noopener" style="font-family: 'Lora', serif; font-size: 15px; color: #b83a3a; text-decoration: none; border-bottom: 1px solid #b83a3a; padding-bottom: 2px; transition: color 0.2s, border-color 0.2s;">Bhojpur Temple</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <svg class="doodle-float project-doodle" style="right: -20px; top: 50%; --dur: 7s; --drift: -10px; --rot: -18deg; --rot-swing: 6deg;" width="30" height="30" viewBox="0 0 40 40" fill="none">
+          <path d="M20 8 C26 8, 30 14, 28 20 C26 26, 18 28, 14 24 C10 20, 14 14, 18 14 C22 14, 24 18, 22 22" stroke="#4a7c59" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.35"/>
+        </svg>
+      </article>
+
+      <!-- Project 2: Waste Management -->
+      <article class="project">
+        <div class="project-imgs">
+          <div class="p-img">
+            <img src="assets/projects/waste-management.jpeg" alt="Waste management project" class="project-slide">
+          </div>
+          <div class="p-img">
+            <!-- placeholder for second image -->
+            <img src="assets/projects/waste-management-2.jpeg" alt="Waste management detail" style="filter: grayscale(0.3);" class="project-slide">
+          </div>
+        </div>
+        <div class="project-body">
+          <h2>Disappearing Waste: Campus Labour and Invisible Systems</h2>
+          <p>Focused on waste management and labour on campus, culminating in an essay titled "Disappearing Waste: Capturing the Essence of Invisible Labour within Campus Space."</p>
+          <p>Interviewed university staff and management to understand everyday systems and the often unseen work that keeps the campus running. Created posters to transform the research into accessible visual formats.</p>
+        </div>
+        <svg class="doodle-float project-doodle" style="left: -28px; bottom: 20px; --dur: 6s; --drift: -6px; --rot: 15deg; --rot-swing: -5deg;" width="24" height="24" viewBox="0 0 40 40" fill="none">
+          <path d="M20 5 L23 15 L35 15 L25 22 L28 35 L20 28 L12 35 L15 22 L5 15 L17 15 Z" fill="#b83a3a" opacity="0.2" stroke="#b83a3a" stroke-width="1"/>
+        </svg>
+      </article>
+
+      <!-- Project 1: Sensory Governance -->
+      <article class="project">
+        <div class="project-imgs">
+          <div class="p-img">
+            <img src="assets/projects/urban-insights-1.avif" alt="Urban insights fieldwork" class="project-slide">
+          </div>
+          <div class="p-img">
+            <img src="assets/projects/urban-insights-2.avif" alt="Urban insights documentation" class="project-slide">
+          </div>
+        </div>
+        <div class="project-body">
+          <h2>Sensory Governance and the Making of the Neoliberal City</h2>
+          <p>A capstone project examining how everyday sensory experiences in Bengaluru — noise, dust, traffic, light, and construction — shape how the city is lived under rapid urban development. Combined personal observation with interviews of residents, auto drivers, and sanitation workers.</p>
+          <p>Created fieldwork-based illustrations and contributed to a group exhibition at Alliance Française de Bangalore. Served as editor for the project website, curating content for the capstone blog.</p>
+          <a href="https://aashisingh2.wixsite.com/urban-insight/about-4" target="_blank" rel="noopener" class="project-cta">Visit Urban Insight website→</a>
+        </div>
+        <svg class="doodle-float project-doodle" style="right: -24px; top: 12px; --dur: 8s; --drift: -8px; --rot: -6deg; --rot-swing: 4deg;" width="28" height="28" viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="20" r="7" stroke="#e8c547" stroke-width="1.2" fill="none" stroke-dasharray="3 3"/>
+          <circle cx="20" cy="20" r="2.5" fill="#e8c547"/>
+        </svg>
+      </article>
+
+      <!-- Project 4: Student Magazine -->
+      <article class="project">
+        <div class="project-imgs project-imgs--single-center">
+          <div class="p-img p-img--frameless">
+            <img src="assets/projects/jlu-mag.jpg" alt="Student Magazine COVID-19 edition" class="project-slide">
+          </div>
+        </div>
+        <div class="project-body">
+          <h2>Akhbaar Student Magazine — COVID-19 Edition</h2>
+          <p>Served as Editor for the COVID-19 edition of Akhbaar, the student magazine of Jagran Lakecity University. Curated student-written pieces and artwork reflecting experiences of the pandemic.</p>
+          <p>Managed the editorial process, including selecting content and shaping the structure and layout of the issue.</p>
+        </div>
+        <svg class="doodle-float project-doodle" style="left: -22px; top: 10px; --dur: 5s; --drift: -5px; --rot: 5deg; --rot-swing: -3deg;" width="22" height="22" viewBox="0 0 30 30" fill="none">
+          <path d="M15 25 C10 20, 2 15, 5 9 C8 4, 15 7, 15 12 C15 7, 22 4, 25 9 C28 15, 20 20, 15 25Z" fill="#b83a3a" opacity="0.18" stroke="#b83a3a" stroke-width="1"/>
+        </svg>
+      </article>
+    </section>
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="page-margin">
+    <div class="links">
+      <a href="mailto:hello@example.com">Email</a>
+      <a href="https://shraddhag.substack.com/" target="_blank" rel="noopener">Substack</a>
+      <a href="#">Twitter</a>
+      <a href="#">Instagram</a>
+    </div>
+    <svg class="doodle-float" style="position: absolute; right: 60px; top: -20px; --dur: 6s; --drift: -8px; --rot: 0deg; --rot-swing: 5deg;" width="26" height="26" viewBox="0 0 30 30" fill="none">
+      <circle cx="15" cy="12" r="3" fill="#e8c547" opacity="0.6"/>
+      <ellipse cx="15" cy="6" rx="3" ry="4" fill="none" stroke="#e8c547" stroke-width="0.8" opacity="0.5" transform="rotate(0 15 12)"/>
+      <ellipse cx="15" cy="6" rx="3" ry="4" fill="none" stroke="#e8c547" stroke-width="0.8" opacity="0.5" transform="rotate(60 15 12)"/>
+      <ellipse cx="15" cy="6" rx="3" ry="4" fill="none" stroke="#e8c547" stroke-width="0.8" opacity="0.5" transform="rotate(120 15 12)"/>
+      <ellipse cx="15" cy="6" rx="3" ry="4" fill="none" stroke="#e8c547" stroke-width="0.8" opacity="0.5" transform="rotate(180 15 12)"/>
+      <ellipse cx="15" cy="6" rx="3" ry="4" fill="none" stroke="#e8c547" stroke-width="0.8" opacity="0.5" transform="rotate(240 15 12)"/>
+      <ellipse cx="15" cy="6" rx="3" ry="4" fill="none" stroke="#e8c547" stroke-width="0.8" opacity="0.5" transform="rotate(300 15 12)"/>
+      <line x1="15" y1="15" x2="15" y2="28" stroke="#5a8f4a" stroke-width="0.8" opacity="0.4"/>
+    </svg>
+  </footer>
+
+  <!-- ============================ MODAL ============================ -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <button class="modal-close" id="modal-close" aria-label="Close">×</button>
+    <button class="modal-arrow modal-prev" id="modal-prev" aria-label="Previous">‹</button>
+    <div class="modal-stage" id="modal-stage">
+      <img id="modal-img" src="" alt="">
+      <div class="modal-caption" id="modal-caption"></div>
+    </div>
+    <button class="modal-arrow modal-next" id="modal-next" aria-label="Next">›</button>
+  </div>
+
+  <script>
+    /* ============================================================
+       PROJECTS SLIDESHOW MODAL
+       ============================================================ */
+    (function () {
+      const slides = Array.from(document.querySelectorAll('.project-slide'));
+      const modal = document.getElementById('modal');
+      const modalImg = document.getElementById('modal-img');
+      let i = 0;
+
+      function show(n) {
+        i = (n + slides.length) % slides.length;
+        modalImg.src = slides[i].src;
+      }
+      function open(n) { show(n); modal.classList.add('open'); document.body.style.overflow = 'hidden'; }
+      function close() { modal.classList.remove('open'); document.body.style.overflow = ''; }
+
+      slides.forEach((img, idx) => img.addEventListener('click', () => open(idx)));
+      modal.addEventListener('click', close);
+      document.getElementById('modal-stage').addEventListener('click', e => e.stopPropagation());
+      document.getElementById('modal-close').addEventListener('click', close);
+      document.getElementById('modal-prev').addEventListener('click', e => { e.stopPropagation(); show(i - 1); });
+      document.getElementById('modal-next').addEventListener('click', e => { e.stopPropagation(); show(i + 1); });
+      document.addEventListener('keydown', e => {
+        if (!modal.classList.contains('open')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowLeft') show(i - 1);
+        if (e.key === 'ArrowRight') show(i + 1);
+      });
+    })();
+  </script>
+</body>
+</html>

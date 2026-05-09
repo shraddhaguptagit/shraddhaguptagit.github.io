@@ -14,48 +14,16 @@
 </head>
 
 <body>
-
   <!-- ============================ NAV ============================ -->
   <nav class="page-margin">
     <div class="logo">shraddha gupta.</div>
     <div class="nav-links">
-      <a href="#" class="nav-active-link">Home</a>
-      <a href="#">Projects</a>
-      <a href="#">About</a>
+      <a href="index.html" class="nav-active-link">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="assets/Shraddha Gupta CV.pdf">Resume</a>
     </div>
   </nav>
-
-  <!-- ============================ WAVE ANIMATION ============================ -->
-  <div class="wave-frame">
-    <img class="wave-leaf" src="assets/arts/leaf.jpg" alt="">
-    <div class="wave-track" id="wave-track"></div>
-
-    <!-- Two tile templates — desktop and mobile.
-         JS picks the right one based on viewport width.
-         Both use the same 1440×260 SVG coordinate space,
-         but you can reposition overlays independently. -->
-    <!-- Desktop tile (≥721px): 1 tile per screen width -->
-    <template id="wave-tile-desktop">
-      <div class="wave-tile">
-        <img src="assets/drawings/waves.svg" alt="" draggable="false" class="wave-svg">
-        <svg class="wave-overlay" viewBox="0 0 1440 260" preserveAspectRatio="xMidYMid slice">
-            <image href="assets/drawings/shraddha-sitting.png" x="50" y="-110" height="280"/>
-            <image href="assets/drawings/shraddha-knitting.png" x="530" y="-74" height="260"/>
-        </svg>
-      </div>
-    </template>
-
-    <!-- Mobile tile (≤720px): Reposition / resize overlays for the wider tile -->
-    <template id="wave-tile-mobile">
-      <div class="wave-tile">
-        <img src="assets/drawings/waves.svg" alt="" draggable="false" class="wave-svg">
-        <svg class="wave-overlay" viewBox="0 0 1440 280" preserveAspectRatio="xMidYMid slice">
-            <image href="assets/drawings/shraddha-sitting.png" x="100" y="-138" height="337"/>
-            <image href="assets/drawings/shraddha-knitting.png" x="900" y="-74" height="280"/>
-        </svg>
-      </div>
-    </template>
-  </div>
 
   <!-- ============================ HERO ============================ -->
   <main class="page-margin">
@@ -177,9 +145,41 @@
     </section>
   </main>
 
+    <!-- ============================ WAVE ANIMATION ============================ -->
+  <div class="wave-frame">
+    <img class="wave-leaf" src="assets/arts/leaf.jpg" alt="">
+    <div class="wave-track" id="wave-track"></div>
+
+    <!-- Two tile templates — desktop and mobile.
+         JS picks the right one based on viewport width.
+         Both use the same 1440×260 SVG coordinate space,
+         but you can reposition overlays independently. -->
+    <!-- Desktop tile (≥721px): 1 tile per screen width -->
+    <template id="wave-tile-desktop">
+      <div class="wave-tile">
+        <img src="assets/drawings/waves.svg" alt="" draggable="false" class="wave-svg">
+        <svg class="wave-overlay" viewBox="0 0 1440 260" preserveAspectRatio="xMidYMid slice">
+            <image href="assets/drawings/shraddha-sitting.png" x="50" y="-110" height="280"/>
+            <image href="assets/drawings/shraddha-knitting.png" x="530" y="-74" height="260"/>
+            <image href="assets/drawings/shraddha-reading.png" x="530" y="-74" height="230"/>
+        </svg>
+      </div>
+    </template>
+
+    <!-- Mobile tile (≤720px): Reposition / resize overlays for the wider tile -->
+    <template id="wave-tile-mobile">
+      <div class="wave-tile">
+        <img src="assets/drawings/waves.svg" alt="" draggable="false" class="wave-svg">
+        <svg class="wave-overlay" viewBox="0 0 1440 280" preserveAspectRatio="xMidYMid slice">
+            <image href="assets/drawings/shraddha-sitting.png" x="100" y="-138" height="337"/>
+            <image href="assets/drawings/shraddha-knitting.png" x="900" y="-74" height="280"/>
+        </svg>
+      </div>
+    </template>
+  </div>
+
   <!-- ============================ FOOTER ============================ -->
   <footer class="page-margin">
-    <div class="signoff">— thanks for stopping by</div>
     <div class="links">
       <a href="mailto:hello@example.com">Email</a>
       <a href="https://shraddhag.substack.com/" target="_blank" rel="noopener">Substack</a>
