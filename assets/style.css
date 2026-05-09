@@ -92,6 +92,10 @@ nav {
   color: var(--accent);
 }
 
+.nav-active-link {
+  border-bottom: 4px solid purple;
+}
+
 /* ---------- WAVE ANIMATION ---------- */
 .wave-frame {
   position: relative;
