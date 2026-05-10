@@ -253,7 +253,7 @@ nav {
   position: relative;
   min-height: 800px;
   padding-top: 60px;
-  margin-top: 150px;
+  margin-top: 130px;
 }
 
 .gallery-label {
@@ -475,38 +475,39 @@ nav {
 
 /* ---------- FOOTER ---------- */
 footer {
-  margin-top: 100px;
-  padding-top: 28px;
-  border-top: 4px solid var(--accent);
+  margin-top: 30px;
+  padding-top: 0;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  flex-wrap: wrap;
-  gap: 32px;
-}
-
-footer .signoff {
-  font-family: var(--font-hand);
-  font-size: 28px;
-  color: var(--accent);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 footer .links {
   display: flex;
-  gap: 28px;
+  align-items: center;
+  gap: 20px;
 }
 
 footer .links a {
+  font-family: var(--font-hand);
   color: var(--ink);
   text-decoration: none;
-  font-size: 14px;
+  font-size: 26px;
   border-bottom: 1px solid transparent;
   padding-bottom: 2px;
   transition: border-color 0.2s ease;
 }
 
 footer .links a:hover {
-  border-color: var(--accent);
+  color: var(--accent);
+  border-color: transparent;
+}
+
+footer .links .separator {
+  font-family: var(--font-hand);
+  color: var(--muted);
+  font-size: 26px;
 }
 
 /* ---------- MODAL ---------- */
@@ -851,7 +852,7 @@ footer .links a:hover {
 
 .about-body p {
   font-family: var(--font-body);
-  font-size: 16.5px;
+  font-size: 17px;
   line-height: 1.8;
   color: #3d3d3d;
   margin-bottom: 20px;
@@ -867,9 +868,6 @@ footer .links a:hover {
 
 /* Connect Section - Inline */
 .about-connect-split {
-  margin-top: 32px;
-  padding-top: 24px;
-  border-top: 1px solid var(--card-border);
   font-family: var(--font-body);
   font-size: 16px;
   color: var(--muted);
@@ -882,8 +880,9 @@ footer .links a:hover {
 
 .connect-link-inline {
   font-family: var(--font-hand);
-  font-size: 20px;
-  color: var(--ink);
+  font-size: clamp(30px, 4.5vw, 30px);
+  margin-top: 10px;
+  color: #565050;
   text-decoration: none;
   position: relative;
   margin: 0 4px;
