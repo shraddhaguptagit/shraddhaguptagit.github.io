@@ -2,98 +2,323 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Shraddha Gupta</title>
-	<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shraddha Gupta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/style.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Patrick+Hand&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
-	<div class="container">
-		<div class="header">
-			<div class="header-left">
-				<h1 class="title">Shraddha Gupta</h1>
-				<div style="display: flex; align-items: center;">
-					<h3 class="subtitle">Creative Writer</h3>
-				</div>
-  
-				<p>I am an aspiring writer based in Bhopal, India.</p>
-				<p>
-					I love writing creative, research-oriented and impactful pieces that can engage readers.
-				</p>
-			</div>
-			<div class="header-right">
-				<img src="assets/flower.webp" draggable="false">
-			</div>
-		</div>
-		<div class="selected-writings">
-			<div style="display: flex; align-items: center;">
-				<img draggable="false" src="assets/pen.webp" width="70px">
-				<h2>Selected Writings</h2>
-			</div>
-			<div class="selected-writings-boxes">
-				<a href="http://blog.shraddha.page/the-day-i-got-introduced-to-caste" class="selected-writings-box">The
-					day I got introduced to Caste</a>
-				<a href="http://blog.shraddha.page/renaming-the-pages-of-history-minto-hall-and-the-nawab-culture-of-bhopal"
-					class="selected-writings-box">The Renaming of Minto Hall</a>
-				<a href="http://blog.shraddha.page/the-station-of-the-dead" class="selected-writings-box">The Station of the Dead</a>
-			</div>
-		</div>
-		<a href="https://blog.shraddha.page">Read all →</a>
-		<div class="work">
-			<h2>Work</h2>
-			<div class="small-break"></div>
-			<div class="mp-tourism">
-				<div class="mp-tourism-text">
-					<h3>MP Tourism</h3>
-					<h4>Research Assistant, 2022</h4>
-					<p>
-						I worked as a research assistant for a project under M.P. Tourism. The
-						project was headed by Mr. Joe Alvares. Our focus was on crafting
-						captivating audio guides for the world heritage sites of Sanchi,
-						Bhimbetka, and Bhojpur. 
-					</p>
-				</div>
-				<div class="mp-tourism-img">
-					<img style="width: 100%" src="assets/mp-tourism.webp">
-				</div>
-			</div>
+  <!-- ============================ NAV ============================ -->
+  <nav class="page-margin">
+    <div class="logo">shraddha gupta</div>
+    <div class="nav-links">
+      <a href="index.html" class="nav-active-link">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="assets/Shraddha Gupta CV.pdf">Resume</a>
+    </div>
+  </nav>
 
-			<div class="break"></div>
-			<div class="student-magazine">
-				<div class="student-magazine-img">
-					<img style="width: 80%" src="assets/shraddha-mag.jpg">
-				</div>
-				<div>
-					<h3>Student Magazine – JLU</h3>
-					<h4>Editor, 2021</h4>
-					<p>
-						I acted as the editor of the COVID edition of 'Akhbaar' student magazine,
-						featuring stories and artworks reflecting our community's pandemic experiences.
-						<br>
-						My responsibility was to oversee the content creation and layout for this unique edition.
-					</p>
-					<a href="https://shraddha.page/assets/akhbaar-magazine.pdf">Read the full magazine →</a>
-					<br>
-					<br>
-				</div>
-			</div>
-		</div>
-		<div class="break"></div>
-		<div class="looking-to-work">
-			<div class="looking-to-work-left">
-				<p>I am looking for work at a place where I can hone my craft. </p>
-				<br>
-				<p>Write to me at <a href="mailto:shraddhagupta2015@gmail.com">shraddhagupta2015@gmail.com</a></p>
-			</div>
-			<div class="looking-to-work-right">
-				<a href="https://shraddha.page/assets/cv.pdf">Resume →</a>
-			</div>
+  <!-- ============================ HERO ============================ -->
+  <main class="page-margin">
+    <header class="hero">
+      <h1>
+        <span class="sparkle sparkle--lg" style="top: -30px; left: -50px; --sparkle-color: #e8c547;"></span>
+        <span class="sparkle" style="top: -10px; right: -40px;"></span>
+        <span class="sparkle sparkle--sm" style="bottom: 14px; right: -56px; --sparkle-color: #1a1a1a;"></span>
+        <span class="sparkle sparkle--sm" style="top: 50%; left: -64px; --sparkle-color: #b83a3a;"></span>
 
-		</div>
-	</div>
+        Hi, I'm Shraddha Gupta
+        <span class="line2">creative writer · researcher · doodler</span>
+      </h1>
+      <p class="tagline">I write essays on attention, neutrality, and the social texture of feeling — the quiet
+        structures that shape how we notice, judge, and care.</p>
+    </header>
 
+    <!-- ============================ CANVAS ============================ -->
+    <section class="canvas">
+
+      <!-- ART COLUMN -->
+      <div class="gallery" id="gallery">
+
+        <div class="art" style="top: 0; left: 10px; width: 165px; height: 200px; transform: rotate(-4deg);">
+          <img src="assets/arts/art-1.jpeg" alt="" data-caption="Untitled · 01">
+          <div class="caption">untitled · 01</div>
+        </div>
+
+        <div class="art" style="top: 30px; left: 200px; width: 150px; height: 150px; transform: rotate(5deg);">
+          <img src="assets/arts/art-2.jpeg" alt="" data-caption="Untitled · 02">
+          <div class="caption">untitled · 02</div>
+        </div>
+
+        <div class="art" style="top: 290px; left: 30px; width: 155px; height: 195px; transform: rotate(3deg);">
+          <img src="assets/arts/art-3.jpeg" alt="" data-caption="Untitled · 03">
+          <div class="caption">untitled · 03</div>
+        </div>
+
+        <div class="art" style="top: 250px; left: 215px; width: 145px; height: 175px; transform: rotate(-6deg);">
+          <img src="assets/arts/art-4.jpeg" alt="" data-caption="Untitled · 04">
+          <div class="caption">untitled · 04</div>
+        </div>
+
+        <div class="art" style="top: 540px; left: 20px; width: 160px; height: 200px; transform: rotate(-2deg);">
+          <img src="assets/arts/art-5.jpeg" alt="" data-caption="Untitled · 05">
+          <div class="caption">untitled · 05</div>
+        </div>
+
+        <div class="art" style="top: 500px; left: 210px; width: 160px; height: 160px; transform: rotate(4deg);">
+          <img src="assets/arts/art-6.jpeg" alt="" data-caption="Untitled · 06">
+          <div class="caption">untitled · 06</div>
+        </div>
+
+        <div class="art" style="top: 720px; left: 210px; width: 160px; height: 160px; transform: rotate(-6deg);">
+          <img src="assets/arts/art-9.jpeg" alt="" data-caption="Untitled · 06">
+          <div class="caption">untitled · 06</div>
+        </div>
+
+        <svg class="doodle" style="top: 230px; left: 175px;" width="50" height="50" viewBox="0 0 60 60" fill="none">
+          <path d="M30 10 L33 25 L48 27 L36 36 L40 50 L30 42 L20 50 L24 36 L12 27 L27 25 Z" fill="#e8c547"
+            stroke="#1a1a1a" stroke-width="1.2" stroke-linejoin="round" />
+        </svg>
+
+        <svg class="doodle" style="top: 470px; left: 150px;" width="70" height="35" viewBox="0 0 80 40" fill="none">
+          <path d="M5 20 Q 20 5, 35 20 T 65 20" stroke="#b83a3a" stroke-width="2" fill="none" stroke-linecap="round" />
+          <path d="M65 20 L72 14 M65 20 L72 26" stroke="#b83a3a" stroke-width="2" stroke-linecap="round" />
+        </svg>
+
+      </div>
+
+      <!-- WRITING COLUMN -->
+      <div class="writing">
+        <div class="writing-header">
+          <h2>recent writing</h2>
+          <a href="https://shraddhag.substack.com/" target="_blank" rel="noopener">Substack →</a>
+        </div>
+
+        <article class="essay">
+          <a class="title-link" href="https://shraddhag.substack.com/p/recognition-before-experience-on" target="_blank"
+            rel="noopener">
+            <h3>Recognition Before Experience</h3>
+          </a>
+          <blockquote>
+            <p>What appears as quick thinking is often pre-structured recognition. When a new instance appears, it does
+              not arrive as entirely new. It arrives already legible.</p>
+            <p>This is where morality begins to function as reaction time. The interval between seeing and deciding
+              collapses. The question is no longer <em>what is happening here?</em> but <em>which known pattern does
+                this belong to?</em></p>
+          </blockquote>
+          <span class="meta">Essay · May 2026</span>
+        </article>
+
+        <article class="essay">
+          <a class="title-link" href="https://shraddhag.substack.com/p/neutrality-is-not-absence-on-the" target="_blank"
+            rel="noopener">
+            <h3>Neutrality Is Not Absence</h3>
+          </a>
+          <blockquote>
+            <p>Neutrality is usually imagined as the absence of position. But in practice, it is a method of producing
+              position while hiding it. It is not what happens when meaning disappears, it is what happens when meaning
+              is carefully controlled.</p>
+            <p>To call something neutral is often to say: this has been arranged so that its power relations are not
+              immediately visible.</p>
+          </blockquote>
+          <span class="meta">Essay · May 2026</span>
+        </article>
+
+        <article class="essay">
+          <a class="title-link" href="https://shraddhag.substack.com/p/care-in-fragments-apathy-attention"
+            target="_blank" rel="noopener">
+            <h3>Care in Fragments</h3>
+          </a>
+          <blockquote>
+            <p>What emerges is a strange condition: a hyper-awareness of suffering combined with a reduced capacity to
+              hold it for long. This is not a failure of individuals. It is a consequence of how visibility, speed, and
+              proximity now structure emotional life.</p>
+            <p>Empathy does not disappear. It becomes something practiced in fragments — between news updates, between
+              conversations, between moments of attention that are always slightly elsewhere.</p>
+          </blockquote>
+          <span class="meta">Essay · May 2026</span>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+    <!-- ============================ WAVE ANIMATION ============================ -->
+  <div class="wave-frame">
+    <img class="wave-leaf" src="assets/arts/leaf.jpg" alt="">
+    <div class="wave-track" id="wave-track"></div>
+
+    <!-- Two tile templates — desktop and mobile.
+         JS picks the right one based on viewport width.
+         Both use the same 1440×260 SVG coordinate space,
+         but you can reposition overlays independently. -->
+    <!-- Desktop tile (≥721px): 1 tile per screen width -->
+    <template id="wave-tile-desktop">
+      <div class="wave-tile">
+        <img src="assets/drawings/waves.svg" alt="" draggable="false" class="wave-svg">
+        <svg class="wave-overlay" viewBox="0 0 1440 260" preserveAspectRatio="xMidYMid slice">
+            <image href="assets/drawings/shraddha-sitting.png" x="50" y="-110" height="280"/>
+            <image href="assets/drawings/shraddha-knitting.png" x="530" y="-74" height="260"/>
+            <image href="assets/drawings/shraddha-reading.png" x="530" y="-74" height="230"/>
+        </svg>
+      </div>
+    </template>
+
+    <!-- Mobile tile (≤720px): Reposition / resize overlays for the wider tile -->
+    <template id="wave-tile-mobile">
+      <div class="wave-tile">
+        <img src="assets/drawings/waves.svg" alt="" draggable="false" class="wave-svg">
+        <svg class="wave-overlay" viewBox="0 0 1440 280" preserveAspectRatio="xMidYMid slice">
+            <image href="assets/drawings/shraddha-sitting.png" x="100" y="-138" height="337"/>
+            <image href="assets/drawings/shraddha-knitting.png" x="900" y="-74" height="280"/>
+        </svg>
+      </div>
+    </template>
+  </div>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="page-margin">
+    <div class="links">
+      <a href="mailto:hello@example.com">Email</a>
+      <span class="separator">·</span>
+      <a href="https://shraddhag.substack.com/" target="_blank" rel="noopener">Substack</a>
+      <span class="separator">·</span>
+      <a href="assets/Shraddha Gupta CV.pdf">Resume</a>
+    </div>
+  </footer>
+
+  <!-- ============================ MODAL ============================ -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <button class="modal-close" id="modal-close" aria-label="Close">×</button>
+    <button class="modal-arrow modal-prev" id="modal-prev" aria-label="Previous">‹</button>
+    <div class="modal-stage" id="modal-stage">
+      <img id="modal-img" src="" alt="">
+      <div class="modal-caption" id="modal-caption"></div>
+    </div>
+    <button class="modal-arrow modal-next" id="modal-next" aria-label="Next">›</button>
+  </div>
+
+  <script>
+    /* ============================================================
+       WAVE MARQUEE — tile-based infinite scroll
+       ============================================================
+       Two <template> elements define the tile at each breakpoint.
+       JS picks the right one, clones it, and scrolls. On resize
+       across the breakpoint it rebuilds with the other template.
+       ============================================================ */
+    (function () {
+      const BREAKPOINT = 720;
+
+      const DESKTOP = {
+        template: document.getElementById('wave-tile-desktop'),
+        tilesPerScreen: 1,
+        speed: 60,
+      };
+
+      const MOBILE = {
+        template: document.getElementById('wave-tile-mobile'),
+        tilesPerScreen: 0.6,
+        speed: 60,
+      };
+
+      const track = document.getElementById('wave-track');
+      if (!track) return;
+
+      let current = null;   // 'desktop' | 'mobile'
+      let offset = 0;
+      let last = null;
+      let setWidth = window.innerWidth;
+      let config = DESKTOP;
+
+      function build() {
+        const mode = window.innerWidth > BREAKPOINT ? 'desktop' : 'mobile';
+        if (mode === current) return;
+        current = mode;
+        config = mode === 'desktop' ? DESKTOP : MOBILE;
+
+        // Clear existing tiles
+        track.innerHTML = '';
+
+        const tileCount = Math.ceil(config.tilesPerScreen) + 2;
+        const tileWidthVW = 100 / config.tilesPerScreen;
+
+        for (let t = 0; t < tileCount; t++) {
+          const clone = config.template.content.cloneNode(true);
+          const tile = clone.querySelector('.wave-tile');
+          tile.style.width = tileWidthVW + 'vw';
+          track.appendChild(clone);
+        }
+
+        // Reset scroll so it doesn't jump
+        setWidth = window.innerWidth;
+        offset = offset % setWidth;
+      }
+
+      build();
+
+      // Rebuild immediately when crossing the breakpoint
+      window.addEventListener('resize', function () {
+        setWidth = window.innerWidth;
+        const mode = setWidth > BREAKPOINT ? 'desktop' : 'mobile';
+        if (mode !== current) build();
+      });
+
+      function tick(ts) {
+        if (last === null) last = ts;
+        const dt = (ts - last) / 1000;
+        last = ts;
+
+        offset += config.speed * dt;
+
+        setWidth = window.innerWidth;
+        if (offset >= setWidth) offset -= setWidth;
+
+        track.style.transform = 'translate3d(-' + offset + 'px, 0, 0)';
+        requestAnimationFrame(tick);
+      }
+
+      requestAnimationFrame(tick);
+    })();
+
+    /* ============================================================
+       GALLERY MODAL
+       ============================================================ */
+    (function () {
+      const tiles = Array.from(document.querySelectorAll('.art img'));
+      const modal = document.getElementById('modal');
+      const modalImg = document.getElementById('modal-img');
+      const modalCaption = document.getElementById('modal-caption');
+      const stage = document.getElementById('modal-stage');
+      let i = 0;
+
+      function show(n) {
+        i = (n + tiles.length) % tiles.length;
+        modalImg.src = tiles[i].src;
+        modalCaption.textContent = tiles[i].dataset.caption || '';
+      }
+      function open(n) { show(n); modal.classList.add('open'); document.body.style.overflow = 'hidden'; }
+      function close() { modal.classList.remove('open'); document.body.style.overflow = ''; }
+
+      tiles.forEach((img, idx) => img.parentElement.addEventListener('click', () => open(idx)));
+      modal.addEventListener('click', close);
+      stage.addEventListener('click', e => e.stopPropagation());
+      document.getElementById('modal-close').addEventListener('click', close);
+      document.getElementById('modal-prev').addEventListener('click', e => { e.stopPropagation(); show(i - 1); });
+      document.getElementById('modal-next').addEventListener('click', e => { e.stopPropagation(); show(i + 1); });
+      document.addEventListener('keydown', e => {
+        if (!modal.classList.contains('open')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowLeft') show(i - 1);
+        if (e.key === 'ArrowRight') show(i + 1);
+      });
+    })();
+  </script>
 </body>
-
 </html>
