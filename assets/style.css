@@ -1103,5 +1103,28 @@ footer .links .separator {
   .about-knickknacks img {
     max-height: 120px;
   }
+}
 
+.doodle-strip {
+  position: relative;
+  height: 220px;
+  width: 100%;
+  pointer-events: none;
+  margin-top: 100px;
+}
+
+.doodle-item {
+  position: absolute;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (max-width: 720px) {
+  .doodle-strip {
+    height: 150px;
+  }
+  .doodle-item {
+    scale: 0.6;
+  }
 }
