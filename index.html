@@ -49,37 +49,37 @@
 
         <div class="art" style="top: 0; left: 10px; width: 165px; height: 200px; transform: rotate(-4deg);">
           <img src="assets/arts/art-1.jpeg" alt="" data-caption="Untitled · 01">
-          <div class="caption">untitled · 01</div>
+          <!-- <div class="caption">untitled · 01</div> -->
         </div>
 
         <div class="art" style="top: 30px; left: 200px; width: 150px; height: 150px; transform: rotate(5deg);">
           <img src="assets/arts/art-2.jpeg" alt="" data-caption="Untitled · 02">
-          <div class="caption">untitled · 02</div>
+          <!-- <div class="caption">untitled · 02</div> -->
         </div>
 
         <div class="art" style="top: 290px; left: 30px; width: 155px; height: 195px; transform: rotate(3deg);">
           <img src="assets/arts/art-3.jpeg" alt="" data-caption="Untitled · 03">
-          <div class="caption">untitled · 03</div>
+          <!-- <div class="caption">untitled · 03</div> -->
         </div>
 
         <div class="art" style="top: 250px; left: 215px; width: 145px; height: 175px; transform: rotate(-6deg);">
           <img src="assets/arts/art-4.jpeg" alt="" data-caption="Untitled · 04">
-          <div class="caption">untitled · 04</div>
+          <!-- <div class="caption">untitled · 04</div> -->
         </div>
 
         <div class="art" style="top: 540px; left: 20px; width: 160px; height: 200px; transform: rotate(-2deg);">
           <img src="assets/arts/art-5.jpeg" alt="" data-caption="Untitled · 05">
-          <div class="caption">untitled · 05</div>
+          <!-- <div class="caption">untitled · 05</div> -->
         </div>
 
         <div class="art" style="top: 500px; left: 210px; width: 160px; height: 160px; transform: rotate(4deg);">
           <img src="assets/arts/art-6.jpeg" alt="" data-caption="Untitled · 06">
-          <div class="caption">untitled · 06</div>
+          <!-- <div class="caption">untitled · 06</div> -->
         </div>
 
         <div class="art" style="top: 720px; left: 210px; width: 160px; height: 160px; transform: rotate(-6deg);">
           <img src="assets/arts/art-9.jpeg" alt="" data-caption="Untitled · 06">
-          <div class="caption">untitled · 06</div>
+          <!-- <div class="caption">untitled · 06</div> -->
         </div>
 
         <svg class="doodle" style="top: 230px; left: 175px;" width="50" height="50" viewBox="0 0 60 60" fill="none">
@@ -301,7 +301,7 @@
       function show(n) {
         i = (n + tiles.length) % tiles.length;
         modalImg.src = tiles[i].src;
-        modalCaption.textContent = tiles[i].dataset.caption || '';
+        // modalCaption.textContent = tiles[i].dataset.caption || '';
       }
       function open(n) { show(n); modal.classList.add('open'); document.body.style.overflow = 'hidden'; }
       function close() { modal.classList.remove('open'); document.body.style.overflow = ''; }
