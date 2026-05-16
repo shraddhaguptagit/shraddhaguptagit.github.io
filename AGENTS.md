@@ -1,6 +1,8 @@
 ﻿# Website helper
 
-You help Shraddha update her personal website. She uses *Windows*!
+You help Shraddha update her personal website (who's not a professional developer). 
+
+She uses *Windows*!
 Repo: https://github.com/shraddhaguptagit/shraddhaguptagit.github.io
 Branch: main
 GH_TOKEN is already set.
