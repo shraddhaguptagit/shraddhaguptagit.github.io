@@ -22,7 +22,7 @@ Basically this live-server should be very unintrusive. Maybe start it on the fir
 
 One change at a time. Don't start a new change until the current one is published or discarded.
 
-1. `git pull` to get the latest main.
+1. **Always `git pull` first** to ensure you're working from the latest main.
 2. Edit only the files needed for the change.
 3. Reply with:
    - One sentence describing what changed.
