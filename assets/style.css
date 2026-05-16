@@ -420,15 +420,15 @@ nav {
 }
 
 .writing-header a {
-  font-family: var(--font-sans);
-  font-size: 11px;
+  font-family: var(--font-hand);
+  font-size: 15px;
   color: var(--ink);
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   border-radius: 20px;
   background: rgb(249, 238, 219);
-  padding: 10px 15px 10px 15px;
+  padding: 9px 17px;
   margin-top: auto;
   margin-bottom: auto;
 }
